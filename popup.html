@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 280px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f1a;
+      color: #e0e0e0;
+    }
+    .header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      padding: 16px;
+      text-align: center;
+      border-bottom: 1px solid #00d4ff33;
+    }
+    .header h1 {
+      font-size: 14px;
+      color: #00d4ff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+      background: #555;
+    }
+    .status-dot.online { background: #00ff88; box-shadow: 0 0 6px #00ff88; }
+    .status-dot.offline { background: #ff4444; box-shadow: 0 0 6px #ff4444; }
+    .content { padding: 12px; }
+    .card {
+      background: #1a1a2e;
+      border: 1px solid #ffffff11;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+    }
+    .card-label {
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .card-value {
+      font-size: 16px;
+      color: #00d4ff;
+      font-weight: 600;
+      font-family: monospace;
+    }
+    .card-value.loading { color: #555; font-size: 13px; }
+    .status-row {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+    }
+    .footer {
+      text-align: center;
+      padding: 8px;
+      font-size: 10px;
+      color: #333;
+      border-top: 1px solid #ffffff08;
+    }
+    .refresh-btn {
+      width: 100%;
+      padding: 8px;
+      background: #00d4ff11;
+      border: 1px solid #00d4ff33;
+      border-radius: 6px;
+      color: #00d4ff;
+      font-size: 12px;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+    .refresh-btn:hover { background: #00d4ff22; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🌐 IP & Network</h1>
+  </div>
+  <div class="content">
+    <div class="card">
+      <div class="card-label">Status</div>
+      <div class="status-row">
+        <span class="status-dot" id="dot"></span>
+        <span id="status">Checking...</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Public IP</div>
+      <div class="card-value loading" id="public-ip">Loading...</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Local IP</div>
+      <div class="card-value" id="local-ip">Detecting...</div>
+    </div>
+    <button class="refresh-btn" id="refresh">↻ Refresh</button>
+  </div>
+  <div class="footer">IgorUspehov · github.com/IgorUspehov</div>
+  <script src="popup.js"></script>
+</body>
+</html>
